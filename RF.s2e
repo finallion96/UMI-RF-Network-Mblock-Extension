@@ -37,10 +37,10 @@
 		{"encode":"{0}","setup":"","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n--separator--bool networkRead(int data)\n--separator--{\nRF24NetworkHeader header;\nint payload;\nnetwork.read(header, &payload, sizeof(payload));\nif (payload == data)\n--separator--{\nreturn true;\n}\nelse\n--separator--{\nreturn false;\n}\n}\n","work":"networkRead({0})","loop":""}],
 
 		["w", "Sleep %n seconds", "SleepTime","1",
-		{"encode":"{0}","setup":"","inc":"#include <Sleep_n0m1.h>\n","def":"--separator--void sleepTime(unsigned long timeSleep)\n--separator--{\nsleep.pwrDownMode();\nsleep.sleepDelay(timeSleep * 1000);\n}\n","work":"sleepTime({0});\n","loop":""}],
+		{"encode":"{0}","setup":"","inc":"#include <Sleep_n0m1.h>\n","def":"Sleep sleep;\n--separator--void sleepTime(unsigned long timeSleep)\n--separator--{\nsleep.pwrDownMode();\nsleep.sleepDelay(timeSleep * 1000);\n}\n","work":"sleepTime({0});\n","loop":""}],
 
 		["w", "Sleep interrupt pin %d.inter", "SleepInter","2",
-		{"encode":"{0}","setup":"","inc":"#include <Sleep_n0m1.h>\n","def":"--separator--void interruptSleep(int pin)\n--separator--{\nsleep.pwrDownMode();\n}\n","work":"interruptSleep({0});\n","loop":""}],
+		{"encode":"{0}","setup":"","inc":"#include <Sleep_n0m1.h>\n","def":"Sleep sleep;\n--separator--void interruptSleep(int pin)\n--separator--{\nsleep.pwrDownMode();\n}\n","work":"interruptSleep({0});\n","loop":""}],
 
 		/*
 		["w", "%d.side motor moves %d.direction with speed %n","motor setup","LEFT","Forward","255",
