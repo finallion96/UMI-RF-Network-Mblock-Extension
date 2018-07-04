@@ -6,7 +6,8 @@
 	"javascriptURL":"js/arduino.js",
 	"author":"~ Hieu.P.M & Ninh.D.H ~ ",
 	"blockSpecs": [
-		["h","UMI RF network","runArduino",{"encode":"","setup":"","inc":"","work":"","loop":""}],
+
+		["h","UMI RF network","runArduino",{"encode":"","setup":"","inc":"","def":"","work":"","loop":""}],
 
 		["w", "[RF] Set node ID %n","Setnode","0",
 		{"encode":"{0}","setup":"mesh.setNodeID({0});\nmesh.begin();\n","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"","loop":""}],
@@ -40,7 +41,7 @@
 
 		["w", "Sleep interrupt pin %d.inter", "SleepInter","2",
 		{"encode":"{0}","setup":"","inc":"#include <Sleep_n0m1.h>\n","def":"--separator--void interruptSleep(int pin)\n--separator--{\nsleep.pwrDownMode();\n}\n","work":"interruptSleep({0});\n","loop":""}],
-		
+
 		/*
 		["w", "%d.side motor moves %d.direction with speed %n","motor setup","LEFT","Forward","255",
 		{"encode":"{d0}{d1}{d2}","setup":"    pinMode(4,OUTPUT);\n    pinMode(7,OUTPUT);\n    pinMode(5,OUTPUT);\n    pinMode(8,OUTPUT);\n    pinMode(9,OUTPUT);\n    pinMode(6,OUTPUT);\n","inc":"void Motor(boolean side, boolean direction, double speed);\n","def":"--separator--\nvoid Motor(boolean side, boolean direction, double speed)\n{\n  if(side == 0) analogWrite(5,speed);\n  if(side == 1) analogWrite(6,speed);\n  if(side == 0 && direction == 0) digitalWrite(4,0);\n  if(side == 0 && direction == 0) digitalWrite(7,1);\n  if(side == 0 && direction == 1) digitalWrite(4,1);\n  if(side == 0 && direction == 1) digitalWrite(7,0);\n  if(side == 1 && direction == 0) digitalWrite(8,0);\n  if(side == 1 && direction == 0) digitalWrite(9,1);\n  if(side == 1 && direction == 1) digitalWrite(8,1);\n  if(side == 1 && direction == 1) digitalWrite(9,0);\n}","work":"Motor({0},{1},{2});\n","loop":""}],
