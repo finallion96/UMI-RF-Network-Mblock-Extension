@@ -1,5 +1,5 @@
 {	"extensionName": "UMI RF Network",
-	"version":"1.0",
+	"version":"1.1",
 	"sort":1,
 	"extensionPort": 0,
 	"firmware":"1.1.103",
@@ -13,10 +13,12 @@
 		{"encode":"{0}","setup":"mesh.setNodeID({0});\n","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"","loop":""}],
 
 		["w", "[RF] Set channel %n","Setchannel","90",
-		{"encode":"{0}","setup":"mesh.begin({0});\n","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"","loop":""}],
+		{"encode":"{0}","setup":"mesh.begin({0});\n","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"","loop":"mesh.update();"}],
 
+		/*
 		["w", "[RF] Network update", "NetworkUp",
 		{"setup":"","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"mesh.update();\n","loop":""}],
+		*/
 
 		["w", "[RF] (Master) Allocate node's ID", "AllocateNode",
 		{"setup":"","inc":"#include <RF24.h>\n#include <RF24Network.h>\n#include <RF24Mesh.h>\n#include <SPI.h>\n","def":"RF24 radio(7,8);\nRF24Network network(radio);\nRF24Mesh mesh(radio,network);\n","work":"mesh.DHCP();\n","loop":""}],
